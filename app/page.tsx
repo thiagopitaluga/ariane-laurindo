@@ -289,14 +289,14 @@ export default function Home() {
         <div className="video-grid">
           <figure>
             <video controls playsInline preload="metadata" poster="/images/video-imovel-poster.jpg">
-              <source src="/videos/tour-imovel.mp4" type="video/mp4" />
+              <source src="/videos/tour-imovel-mobile.mp4" type="video/mp4" />
               Seu navegador não suporta vídeo.
             </video>
             <figcaption><span>01</span> Tour de imóvel</figcaption>
           </figure>
           <figure>
             <video controls playsInline preload="metadata" poster="/images/video-ariane-poster.jpg">
-              <source src="/videos/ariane-mensagem.mp4" type="video/mp4" />
+              <source src="/videos/ariane-mensagem-mobile.mp4" type="video/mp4" />
               Seu navegador não suporta vídeo.
             </video>
             <figcaption><span>02</span> Uma mensagem da Ariane</figcaption>
