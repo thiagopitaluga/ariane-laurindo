@@ -169,9 +169,11 @@
 .v2-award-photo strong { color: var(--v2-gold-light); font-family: Georgia, serif; font-size: 36px; font-weight: 400; }
 .v2-award-photo span { font-size: 9px; line-height: 1.5; letter-spacing: .12em; text-transform: uppercase; }
 .v2-authority-copy { align-self: center; }
-.v2-authority-copy h2 { font-size: clamp(42px, 4.5vw, 66px); line-height: 1.03; }
-.v2-authority-copy h2 em { display: block; color: #8f6b2f; font-weight: 400; }
-.v2-authority-copy > p:not(.v2-kicker):not(.v2-serif-lead) { color: var(--v2-muted); font-size: 14px; line-height: 1.75; }
+.v2-authority-copy .v2-kicker { margin-bottom: 27px; }
+.v2-authority-copy h2 { max-width: 850px; margin: 0 0 34px; font-size: clamp(42px, 4.5vw, 66px); line-height: 1.03; text-wrap: balance; }
+.v2-authority-copy h2 em { display: block; margin-top: 9px; color: #8f6b2f; font-weight: 400; }
+.v2-authority-copy .v2-serif-lead { max-width: 780px; margin: 0 0 20px; line-height: 1.48; }
+.v2-authority-copy > p:not(.v2-kicker):not(.v2-serif-lead) { max-width: 760px; margin: 0; color: var(--v2-muted); font-size: 14px; line-height: 1.8; }
 .v2-authority-copy hr { margin: 48px 0; border: 0; border-top: 1px solid rgba(12,32,41,.16); }
 .v2-authority-copy h3 { margin: 0 0 20px; color: #354b54; font-size: 27px; font-style: italic; line-height: 1.35; }
 .v2-text-link-dark { color: var(--v2-ink); }
@@ -271,8 +273,12 @@
   .v2-path-grid article.featured { margin-top: 0; }
   .v2-gallery { grid-template-columns: 1fr; grid-template-rows: none; }
   .v2-gallery figure, .v2-gallery figure.wide { min-height: 420px; grid-row: auto; }
-  .v2-authority { grid-template-columns: 1fr; }
+  .v2-authority { grid-template-columns: 1fr; gap: 58px; }
   .v2-award-photo { min-height: 620px; }
+  .v2-authority-copy { padding-bottom: 8px; }
+  .v2-authority-copy .v2-kicker { margin-bottom: 24px; }
+  .v2-authority-copy h2 { margin-bottom: 28px; }
+  .v2-authority-copy h2 em { margin-top: 7px; }
   .v2-videos { padding: 78px 20px; }
   .v2-video-shell { min-height: 0; grid-template-columns: 1fr; }
   .v2-video-media { min-height: 690px; }

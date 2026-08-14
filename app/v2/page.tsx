@@ -75,7 +75,7 @@ type PathIconKind = "home" | "investment" | "sale";
 const pathIconPaths = {
   home: <><path d="M5 16 16 7l11 9" /><path d="M8 14v12h16V14" /><circle cx="15" cy="19" r="3.5" /><path d="m17.5 21.5 4 4" /></>,
   investment: <><path d="M7 22 13 16l4 4 8-10" /><path d="M19 10h6v6" /><path d="M7 8v16h19" /></>,
-  sale: <><path d="M7 26V10h18v16" /><path d="M7 14h18" /><path d="M11 10V6h10v4" /><path d="M11 20h10" /><path d="M16 16v10" /></>,
+  sale: <><path d="M6.5 8h11l8 8-10 10-9-9Z" /><circle cx="12" cy="13.5" r="1.4" /><path d="m14.5 21 6-6" /><circle cx="15.5" cy="16" r="1" /><circle cx="19.5" cy="20" r="1" /></>,
 } satisfies Record<PathIconKind, ReactNode>;
 
 function PathIcon({ kind }: { kind: PathIconKind }) {
@@ -154,7 +154,7 @@ export default function V2Page() {
             <strong>Menos visitas desnecessárias.</strong>
             <strong>Mais segurança para escolher.</strong>
           </div>
-          <a className="v2-text-link" href={wa(messages.general)} target="_blank" rel="noreferrer">Conversar com a Ariane <span>↗</span></a>
+          <a className="v2-button v2-button-gold" href={wa(messages.general)} target="_blank" rel="noreferrer">Conversar com a Ariane <span>↗</span></a>
         </div>
       </section>
 
@@ -176,7 +176,7 @@ export default function V2Page() {
         </div>
         <div className="v2-method-close" data-reveal="up">
           <blockquote>“Uma decisão importante merece mais do que alguém para abrir a porta. Merece alguém ao seu lado.”</blockquote>
-          <a className="v2-button v2-button-outline" href={wa(messages.comprar)} target="_blank" rel="noreferrer">Quero começar minha busca <span>↗</span></a>
+          <a className="v2-button v2-button-gold" href={wa(messages.comprar)} target="_blank" rel="noreferrer">Quero começar minha busca <span>↗</span></a>
         </div>
       </section>
 
@@ -208,7 +208,7 @@ export default function V2Page() {
         <div className="v2-award-photo" data-reveal="media"><Image src="/images/ariane-premiacao-2025.webp" alt="Ariane Laurindo recebendo o prêmio Melhores do Ano 2025" fill sizes="(max-width: 900px) 100vw, 43vw" /><div><strong>2025</strong><span>Melhores<br />do Ano</span></div></div>
         <div className="v2-authority-copy" data-reveal="up">
           <p className="v2-kicker v2-kicker-dark"><span /> Sobre a Ariane</p>
-          <h2>Conheça a Ariane <em>antes mesmo da primeira conversa.</em></h2>
+          <h2>Conheça a Ariane <em>e descubra um atendimento que começa pela sua história.</em></h2>
           <p className="v2-serif-lead">Ariane Laurindo é Consultora Imobiliária RE/MAX, com atuação em Alphaville, Barueri e região.</p>
           <p>Seu trabalho combina conhecimento do mercado local, atendimento próximo e uma abordagem consultiva para ajudar cada cliente a tomar decisões mais seguras.</p>
         </div>
@@ -227,7 +227,7 @@ export default function V2Page() {
               <div><strong>Curadoria local</strong><span>Conhecimento de Alphaville, Barueri e região.</span></div>
               <div><strong>Acompanhamento</strong><span>Presença da primeira seleção à negociação.</span></div>
             </div>
-            <a className="v2-text-link v2-text-link-dark" href={wa(messages.general)} target="_blank" rel="noreferrer">Conversar com a Ariane <span>↗</span></a>
+            <a className="v2-button v2-button-gold" href={wa(messages.general)} target="_blank" rel="noreferrer">Conversar com a Ariane <span>↗</span></a>
           </div>
         </div>
       </section>
