@@ -295,8 +295,8 @@
 }
 @media (max-width: 600px) {
   .v2-hero-image {
-    top: -8%;
-    height: 112%;
+    top: -15%;
+    height: 120%;
     object-position: 84% top;
   }
 }
