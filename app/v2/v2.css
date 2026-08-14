@@ -21,6 +21,8 @@
 .v2 img { object-fit: cover; }
 .v2-header { position: absolute; z-index: 20; inset: 0 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 19px 5vw; border-bottom: 1px solid rgba(255,255,255,.18); color: white; background: linear-gradient(180deg, rgba(4,16,23,.42), transparent); backdrop-filter: blur(3px); }
 .v2-brand { display: flex; align-items: center; gap: 12px; }
+.v2-brand-logo { width: 310px; height: 64px; object-fit: cover !important; object-position: center 52%; mix-blend-mode: screen; filter: brightness(2.7) contrast(1.08) saturate(.78); opacity: .96; transition: filter .45s var(--v2-ease), transform .45s var(--v2-ease); }
+.v2-brand:hover .v2-brand-logo { filter: brightness(3) contrast(1.12) saturate(.85); transform: translateY(-2px); }
 .v2-logo-mark { display: grid; width: 52px; height: 52px; flex: 0 0 auto; place-items: center; color: var(--v2-gold-light); border: 1px solid rgba(236,217,173,.5); background: rgba(5,18,25,.18); box-shadow: inset 0 0 0 5px rgba(236,217,173,.035); transition: transform .55s var(--v2-ease), box-shadow .55s var(--v2-ease), background .55s; }
 .v2-logo-mark svg { width: 42px; height: 42px; overflow: visible; }
 .v2-logo-mark path { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
@@ -130,8 +132,7 @@
 .v2-path-grid article:hover::before, .v2-path-grid article:hover::after { width: 42px; height: 42px; }
 .v2-path-grid article.featured { margin-top: -15px; background: var(--v2-navy); color: white; box-shadow: 0 25px 60px rgba(7,25,35,.2), inset 0 0 0 7px rgba(255,255,255,.018); }
 .v2-path-grid article.featured:hover { transform: translateY(-9px); }
-.v2-path-card-top { display: flex; align-items: flex-start; justify-content: space-between; color: var(--v2-gold); }
-.v2-path-card-top > span { padding-top: 5px; font-size: 10px; }
+.v2-path-card-top { display: flex; align-items: flex-start; justify-content: flex-start; color: var(--v2-gold); }
 .v2-path-icon { width: 58px; height: 58px; padding: 13px; border: 1px solid rgba(143,107,49,.28); border-radius: 50%; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; transition: transform .5s var(--v2-ease), border-color .4s, background .4s; }
 .v2-path-grid article:hover .v2-path-icon { border-color: rgba(143,107,49,.65); background: rgba(202,170,112,.09); transform: translateY(-4px) rotate(-4deg); }
 .v2-path-grid .featured .v2-path-icon { border-color: rgba(236,217,173,.3); }
@@ -188,6 +189,7 @@
 .v2-video-copy { display: flex; padding: 70px clamp(42px, 6vw, 86px); flex-direction: column; justify-content: center; }
 .v2-video-copy h2 { max-width: 670px; margin-bottom: 30px; font-size: clamp(50px, 5.35vw, 78px); line-height: .96; }
 .v2-video-copy h2 em { display: block; color: #8f6b2f; font-weight: 400; }
+.v2-video-copy h2 + .v2-video-values { margin-top: 10px; }
 .v2-video-lead { max-width: 650px; margin-bottom: 18px; font-family: Georgia, "Times New Roman", serif; font-size: 21px; line-height: 1.42; letter-spacing: -.025em; }
 .v2-video-intro { max-width: 650px; margin-bottom: 34px; color: #526168; font-size: 15px; line-height: 1.75; }
 .v2-video-values { margin: 0 0 37px; border-top: 1px solid rgba(12,32,41,.16); }
@@ -236,6 +238,7 @@
 .v2-motion-ready [data-reveal-delay="04"] { transition-delay: .34s; }
 @media (max-width: 900px) {
   .v2-header { padding: 17px 20px; }
+  .v2-header .v2-brand-logo { width: 255px; height: 58px; filter: brightness(3.2) contrast(1.1) saturate(.8); }
   .v2-header nav, .v2-header-cta { display: none; }
   .v2-hero { min-height: 820px; align-items: flex-end; }
   .v2-hero-image { height: 64% !important; top: 0 !important; object-position: 80% center; transform: none; }
