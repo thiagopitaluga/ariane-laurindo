@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image, { getImageProps } from "next/image";
 import type { ReactNode } from "react";
 import { WhatsAppIcon } from "./brand";
 import { PortraitVideo } from "./portrait-video";
@@ -17,6 +17,26 @@ const messages = {
 
 const wa = (message: string) =>
   `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+const { props: heroDesktopProps } = getImageProps({
+  src: "/images/ariane-hero.webp",
+  alt: "Ariane Laurindo em uma residência de alto padrão",
+  width: 1942,
+  height: 809,
+  sizes: "100vw",
+  quality: 88,
+  priority: true,
+});
+
+const { props: { srcSet: heroMobileSrcSet } } = getImageProps({
+  src: "/images/ariane-hero-mobile.webp",
+  alt: "Ariane Laurindo em uma residência de alto padrão",
+  width: 941,
+  height: 1672,
+  sizes: "100vw",
+  quality: 88,
+  priority: true,
+});
 
 export const metadata: Metadata = {
   title: "Imóveis de alto padrão em Alphaville e Barueri",
@@ -104,7 +124,10 @@ export default function V2Page() {
       </header>
 
       <section className="v2-hero" id="inicio">
-        <Image className="v2-hero-image" src="/images/ariane-hero.webp" alt="Ariane Laurindo em uma residência de alto padrão" fill priority sizes="100vw" />
+        <picture className="v2-hero-picture">
+          <source media="(max-width: 900px)" srcSet={heroMobileSrcSet} />
+          <img {...heroDesktopProps} alt={heroDesktopProps.alt} className="v2-hero-image" />
+        </picture>
         <div className="v2-hero-overlay" />
         <div className="v2-hero-copy">
           <p className="v2-kicker"><span /> Imóveis de alto padrão em Alphaville e Barueri</p>
