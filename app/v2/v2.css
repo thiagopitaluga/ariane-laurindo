@@ -21,8 +21,8 @@
 .v2 img { object-fit: cover; }
 .v2-header { position: absolute; z-index: 20; inset: 0 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 19px 5vw; border-bottom: 1px solid rgba(255,255,255,.18); color: white; background: linear-gradient(180deg, rgba(4,16,23,.42), transparent); backdrop-filter: blur(3px); }
 .v2-brand { display: flex; align-items: center; gap: 12px; }
-.v2-brand-logo { width: 310px; height: 64px; object-fit: cover !important; object-position: center 52%; mix-blend-mode: screen; filter: brightness(2.7) contrast(1.08) saturate(.78); opacity: .96; transition: filter .45s var(--v2-ease), transform .45s var(--v2-ease); }
-.v2-brand:hover .v2-brand-logo { filter: brightness(3) contrast(1.12) saturate(.85); transform: translateY(-2px); }
+.v2-brand-logo { width: 310px; height: 64px; object-fit: cover !important; object-position: center 52%; filter: drop-shadow(0 5px 18px rgba(202,170,112,.18)); opacity: .98; transition: filter .45s var(--v2-ease), transform .45s var(--v2-ease); }
+.v2-brand:hover .v2-brand-logo { filter: brightness(1.08) saturate(1.06) drop-shadow(0 7px 22px rgba(202,170,112,.25)); transform: translateY(-2px); }
 .v2-logo-mark { display: grid; width: 52px; height: 52px; flex: 0 0 auto; place-items: center; color: var(--v2-gold-light); border: 1px solid rgba(236,217,173,.5); background: rgba(5,18,25,.18); box-shadow: inset 0 0 0 5px rgba(236,217,173,.035); transition: transform .55s var(--v2-ease), box-shadow .55s var(--v2-ease), background .55s; }
 .v2-logo-mark svg { width: 42px; height: 42px; overflow: visible; }
 .v2-logo-mark path { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
@@ -241,7 +241,7 @@
 .v2-motion-ready [data-reveal-delay="04"] { transition-delay: .34s; }
 @media (max-width: 900px) {
   .v2-header { padding: 17px 20px; }
-  .v2-header .v2-brand-logo { width: 255px; height: 58px; filter: brightness(3.2) contrast(1.1) saturate(.8); }
+  .v2-header .v2-brand-logo { width: 275px; height: 60px; }
   .v2-header nav, .v2-header-cta { display: none; }
   .v2-hero { min-height: 820px; align-items: flex-end; }
   .v2-hero-image { top: 0; height: 100%; object-position: 85% top; transform: none; }
