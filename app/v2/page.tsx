@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { ArianeLogo, WhatsAppIcon } from "./brand";
+import { PortraitVideo } from "./portrait-video";
 import { ScrollEffects } from "./scroll-effects";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ariane-laurindo.vercel.app";
@@ -206,10 +207,22 @@ export default function V2Page() {
         </div>
       </section>
 
-      <section className="v2-videos v2-section">
-        <div className="v2-videos-heading" data-reveal="up"><div><p className="v2-kicker"><span /> Presença e conhecimento</p><h2>Conheça a Ariane antes mesmo da primeira conversa.</h2></div><p>Uma apresentação pessoal e um olhar mais próximo sobre os imóveis da região.</p></div>
-        <div className="v2-video-grid">
-          <figure data-reveal="media"><video controls playsInline preload="metadata" poster="/images/video-ariane-poster.jpg"><source src="/videos/ariane-mensagem-mobile.mp4" type="video/mp4" /></video><figcaption><span>01</span><strong>Uma mensagem da Ariane</strong></figcaption></figure>
+      <section className="v2-videos v2-section" aria-labelledby="v2-video-title">
+        <div className="v2-video-shell">
+          <div className="v2-video-media" data-reveal="media">
+            <PortraitVideo />
+          </div>
+          <div className="v2-video-copy" data-reveal="up" data-reveal-delay="1">
+            <p className="v2-kicker v2-kicker-dark"><span /> Sobre a Ariane</p>
+            <h2 id="v2-video-title">Conheça a Ariane <em>antes mesmo da primeira conversa.</em></h2>
+            <p className="v2-video-intro">Uma apresentação pessoal para você conhecer a profissional que estará ao seu lado na busca, na análise e na negociação do seu próximo imóvel.</p>
+            <div className="v2-video-values">
+              <div><strong>Escuta estratégica</strong><span>Seu momento orienta cada recomendação.</span></div>
+              <div><strong>Curadoria local</strong><span>Conhecimento de Alphaville, Barueri e região.</span></div>
+              <div><strong>Acompanhamento</strong><span>Presença da primeira seleção à negociação.</span></div>
+            </div>
+            <a className="v2-text-link v2-text-link-dark" href={wa(messages.general)} target="_blank" rel="noreferrer">Conversar com a Ariane <span>↗</span></a>
+          </div>
         </div>
       </section>
 
