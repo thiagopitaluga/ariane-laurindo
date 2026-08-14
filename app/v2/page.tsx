@@ -1,0 +1,237 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ariane-laurindo.vercel.app";
+const whatsappNumber = "5511949690737";
+
+const messages = {
+  general: "Olá, Ariane! Quero conversar sobre meu próximo imóvel em Alphaville ou Barueri.",
+  comprar: "Olá, Ariane! Quero encontrar um imóvel de alto padrão em Alphaville ou Barueri.",
+  investir: "Olá, Ariane! Quero avaliar oportunidades de investimento imobiliário em Alphaville.",
+  vender: "Olá, Ariane! Quero conversar sobre a venda do meu imóvel em Alphaville ou Barueri.",
+};
+
+const wa = (message: string) =>
+  `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+export const metadata: Metadata = {
+  title: "Imóveis de alto padrão em Alphaville e Barueri",
+  description:
+    "Encontre casas, apartamentos e terrenos em Alphaville e Barueri com uma busca personalizada e acompanhamento até a negociação.",
+  alternates: { canonical: "/v2" },
+  openGraph: {
+    title: "Ariane Laurindo | Imóveis de alto padrão em Alphaville",
+    description:
+      "Uma busca personalizada para quem valoriza tempo, segurança e uma escolha à altura do seu estilo de vida.",
+    url: "/v2",
+    images: [{ url: "/og.png", width: 1200, height: 630 }],
+  },
+};
+
+const steps = [
+  ["01", "Entender", "Primeiro, eu entendo você.", "Conversamos sobre seu momento, estilo de vida, prioridades, orçamento e o que você realmente espera encontrar."],
+  ["02", "Filtrar", "Depois, filtro o que faz sentido.", "Em vez de enviar uma lista, seleciono oportunidades alinhadas ao seu perfil e ao seu objetivo."],
+  ["03", "Conhecer", "Você visita o que merece atenção.", "Organizamos as visitas de forma estratégica, priorizando imóveis que podem realmente funcionar para você."],
+  ["04", "Decidir", "Você não negocia sozinho.", "Comparação, contexto da região e acompanhamento próximo para chegar a uma decisão segura."],
+];
+
+const faqs = [
+  ["Quais regiões a Ariane atende?", "O atendimento é especializado em Alphaville, Barueri e região, com conhecimento das características dos principais condomínios e áreas."],
+  ["Quais imóveis posso procurar?", "Casas, apartamentos e terrenos, tanto para moradia quanto para investimento."],
+  ["Preciso saber exatamente o que quero?", "Não. A primeira conversa existe justamente para entender seu momento, organizar prioridades e transformar tudo isso em uma busca mais clara."],
+  ["Vou receber uma lista de imóveis?", "A proposta é selecionar oportunidades com aderência real ao seu perfil, evitando dezenas de anúncios que não merecem seu tempo."],
+  ["A consultoria também atende investidores?", "Sim. Ariane ajuda a avaliar localização, características do imóvel, contexto da região e adequação da oportunidade ao seu objetivo."],
+  ["Posso anunciar meu imóvel para venda?", "Sim. Proprietários recebem orientação sobre posicionamento, apresentação e condução comercial do imóvel."],
+  ["Existe compromisso no primeiro contato?", "Não. O primeiro passo é uma conversa para entender o que você procura e orientar os próximos passos."],
+];
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  name: "Ariane Laurindo",
+  url: `${siteUrl}/v2`,
+  telephone: "+55 11 94969-0737",
+  image: `${siteUrl}/images/ariane-hero.webp`,
+  description: "Consultora imobiliária RE/MAX especializada em imóveis de alto padrão em Alphaville e Barueri.",
+  areaServed: ["Alphaville", "Barueri"],
+};
+
+const faqData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map(([name, text]) => ({
+    "@type": "Question",
+    name,
+    acceptedAnswer: { "@type": "Answer", text },
+  })),
+};
+
+export default function V2Page() {
+  return (
+    <main className="v2">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqData) }} />
+
+      <header className="v2-header">
+        <a className="v2-brand" href="#inicio" aria-label="Ariane Laurindo, início">
+          <span className="v2-monogram">AL</span>
+          <span><strong>Ariane Laurindo</strong><small>Consultora imobiliária · RE/MAX</small></span>
+        </a>
+        <nav aria-label="Navegação principal">
+          <a href="#metodo">Como funciona</a>
+          <a href="#alphaville">Alphaville</a>
+          <a href="#ariane">Sobre</a>
+        </nav>
+        <a className="v2-header-cta" href={wa(messages.general)} target="_blank" rel="noreferrer">
+          Falar com a Ariane <span>↗</span>
+        </a>
+      </header>
+
+      <section className="v2-hero" id="inicio">
+        <Image className="v2-hero-image" src="/images/ariane-hero.webp" alt="Ariane Laurindo em uma residência de alto padrão" fill priority sizes="100vw" />
+        <div className="v2-hero-overlay" />
+        <div className="v2-hero-copy">
+          <p className="v2-kicker"><span /> Imóveis de alto padrão em Alphaville e Barueri</p>
+          <h1>Procurando um imóvel em Alphaville?</h1>
+          <p className="v2-hero-accent">Comece pelas opções certas.</p>
+          <p className="v2-lead">Ariane entende o que você procura, filtra as melhores oportunidades e acompanha você até a negociação.</p>
+          <div className="v2-actions">
+            <a className="v2-button v2-button-gold" href={wa(messages.comprar)} target="_blank" rel="noreferrer">Quero encontrar meu imóvel <span>↗</span></a>
+            <small>Atendimento personalizado pelo WhatsApp</small>
+          </div>
+          <ul className="v2-types"><li>Casas</li><li>Apartamentos</li><li>Terrenos</li></ul>
+        </div>
+        <a className="v2-scroll" href="#consultoria"><span>Explore</span><i /></a>
+      </section>
+
+      <section className="v2-pain v2-section" id="consultoria">
+        <div className="v2-section-label"><span>01</span> A busca certa</div>
+        <div className="v2-pain-title">
+          <p className="v2-kicker v2-kicker-dark"><span /> Encontrar um imóvel é fácil. Encontrar o certo é outra história.</p>
+          <h2>Você não precisa de mais opções.<em>Precisa das opções certas.</em></h2>
+        </div>
+        <div className="v2-pain-copy">
+          <p className="v2-serif-lead">São centenas de imóveis, condomínios, projetos e possibilidades. Mas nem todo imóvel que parece interessante merece o seu tempo.</p>
+          <ul>
+            <li>Visitas a imóveis que não combinam com seu perfil</li>
+            <li>Opções fora do orçamento ou da sua rotina</li>
+            <li>Decisões importantes sem contexto suficiente</li>
+            <li>Oportunidades perdidas por falta de informação</li>
+          </ul>
+          <p className="v2-emphasis">É justamente aí que entra a consultoria da Ariane.</p>
+        </div>
+      </section>
+
+      <section className="v2-listen v2-section">
+        <div className="v2-listen-image">
+          <Image src="/images/casa-alphaville-interior.jpg" alt="Interior sofisticado de imóvel em Alphaville" fill sizes="(max-width: 900px) 100vw, 45vw" />
+          <span>Seu estilo de vida vem primeiro</span>
+        </div>
+        <div className="v2-listen-copy">
+          <p className="v2-kicker"><span /> Antes da primeira visita</p>
+          <h2>Antes de mostrar imóveis, eu entendo o que você procura.</h2>
+          <p>Seu orçamento é apenas uma parte da decisão. Também importa como você quer viver, o que é prioridade para sua família e qual endereço faz sentido para sua rotina e patrimônio.</p>
+          <div className="v2-result">
+            <span>O resultado</span>
+            <strong>Menos tempo procurando.</strong>
+            <strong>Menos visitas desnecessárias.</strong>
+            <strong>Mais segurança para escolher.</strong>
+          </div>
+          <a className="v2-text-link" href={wa(messages.general)} target="_blank" rel="noreferrer">Conversar com a Ariane <span>↗</span></a>
+        </div>
+      </section>
+
+      <section className="v2-method v2-section" id="metodo">
+        <div className="v2-method-heading">
+          <div>
+            <p className="v2-kicker"><span /> Uma consultoria de ponta a ponta</p>
+            <h2>Do primeiro contato à negociação, você não precisa fazer tudo sozinho.</h2>
+          </div>
+          <p>Uma jornada simples, pessoal e organizada para que cada etapa aproxime você da decisão certa.</p>
+        </div>
+        <div className="v2-step-grid">
+          {steps.map(([number, label, title, copy]) => (
+            <article key={number}>
+              <div><span>{number}</span><small>{label}</small></div>
+              <h3>{title}</h3><p>{copy}</p>
+            </article>
+          ))}
+        </div>
+        <div className="v2-method-close">
+          <blockquote>“Uma decisão importante merece mais do que alguém para abrir a porta. Merece alguém ao seu lado.”</blockquote>
+          <a className="v2-button v2-button-outline" href={wa(messages.comprar)} target="_blank" rel="noreferrer">Quero começar minha busca <span>↗</span></a>
+        </div>
+      </section>
+
+      <section className="v2-investment">
+        <div><p className="v2-kicker v2-kicker-dark"><span /> Seu tempo também faz parte do investimento</p><h2>Você conta o que procura.<br />Eu faço a seleção.<br /><em>Juntos, encontramos o que faz sentido.</em></h2></div>
+        <span className="v2-investment-mark">AL</span>
+      </section>
+
+      <section className="v2-paths v2-section">
+        <div className="v2-section-label"><span>02</span> Seu momento</div>
+        <div className="v2-paths-heading"><p className="v2-kicker v2-kicker-dark"><span /> Qual é o seu objetivo?</p><h2>Cada pessoa chega a Alphaville por um motivo diferente.</h2></div>
+        <div className="v2-path-grid">
+          <article><span>01</span><small>Quero comprar</small><h3>Um imóvel que combine com a vida que você quer viver.</h3><p>Casas, apartamentos e terrenos selecionados de acordo com seu perfil, orçamento e prioridades.</p><a href={wa(messages.comprar)} target="_blank" rel="noreferrer">Encontrar meu imóvel <b>↗</b></a></article>
+          <article className="featured"><span>02</span><small>Quero investir</small><h3>Uma oportunidade transformada em decisão estratégica.</h3><p>Avalie localização, contexto da região e potencial antes de investir seu patrimônio.</p><a href={wa(messages.investir)} target="_blank" rel="noreferrer">Falar sobre investimento <b>↗</b></a></article>
+          <article><span>03</span><small>Quero vender</small><h3>Uma estratégia de venda à altura do seu imóvel.</h3><p>Posicionamento, apresentação e condução profissional para alcançar as pessoas certas.</p><a href={wa(messages.vender)} target="_blank" rel="noreferrer">Quero vender meu imóvel <b>↗</b></a></article>
+        </div>
+      </section>
+
+      <section className="v2-alphaville v2-section" id="alphaville">
+        <div className="v2-alphaville-head"><div><p className="v2-kicker"><span /> Mais do que um endereço</p><h2>O lugar onde você escolhe como quer viver.</h2></div><p>Alphaville combina arquitetura, natureza, segurança e lazer em uma das regiões mais desejadas de São Paulo.</p></div>
+        <div className="v2-gallery">
+          <figure className="wide"><Image src="/images/casa-alphaville-fachada.jpg" alt="Casa contemporânea em Alphaville" fill sizes="(max-width: 800px) 100vw, 60vw" /><figcaption><small>01</small><strong>Casas contemporâneas</strong><span>Espaços pensados para receber, viver e aproveitar.</span></figcaption></figure>
+          <figure><Image src="/images/casa-alphaville-interior.jpg" alt="Interior de alto padrão" fill sizes="(max-width: 800px) 100vw, 40vw" /><figcaption><small>02</small><strong>Arquitetura e interiores</strong><span>Cada detalhe acompanha seu estilo de vida.</span></figcaption></figure>
+          <figure><Image src="/images/casa-alphaville-piscina.jpg" alt="Piscina e área de lazer privativa" fill sizes="(max-width: 800px) 100vw, 40vw" /><figcaption><small>03</small><strong>Privacidade e bem-estar</strong><span>Mais espaço para o que realmente importa.</span></figcaption></figure>
+        </div>
+        <a className="v2-button v2-button-gold" href={wa(messages.comprar)} target="_blank" rel="noreferrer">Receber opções alinhadas ao meu perfil <span>↗</span></a>
+      </section>
+
+      <section className="v2-authority v2-section" id="ariane">
+        <div className="v2-award-photo"><Image src="/images/premiacao-2025.jpg" alt="Ariane Laurindo recebendo o prêmio Melhores do Ano 2025" fill sizes="(max-width: 900px) 100vw, 43vw" /><div><strong>2025</strong><span>Melhores<br />do Ano</span></div></div>
+        <div className="v2-authority-copy">
+          <p className="v2-kicker v2-kicker-dark"><span /> Conhecimento local faz diferença</p>
+          <h2>Não basta conhecer imóveis. É preciso conhecer o lugar.</h2>
+          <p className="v2-serif-lead">Ariane Laurindo é Consultora Imobiliária RE/MAX, com atuação em Alphaville, Barueri e região.</p>
+          <p>Seu trabalho combina conhecimento do mercado local, atendimento próximo e uma abordagem consultiva para ajudar cada cliente a tomar decisões mais seguras.</p>
+          <hr />
+          <p className="v2-kicker v2-kicker-dark"><span /> Por trás de cada imóvel, existe uma pessoa</p>
+          <h3>“Eu não quero apenas encontrar uma casa para você. Quero entender por que você está procurando.”</h3>
+          <p>Talvez seja a hora de mudar, proporcionar mais espaço para sua família ou construir patrimônio. É isso que muda a forma de procurar um imóvel — e é por isso que meu trabalho começa ouvindo.</p>
+          <a className="v2-text-link v2-text-link-dark" href={wa(messages.general)} target="_blank" rel="noreferrer">Falar diretamente com a Ariane <span>↗</span></a>
+        </div>
+      </section>
+
+      <section className="v2-videos v2-section">
+        <div className="v2-videos-heading"><div><p className="v2-kicker"><span /> Presença e conhecimento</p><h2>Conheça a Ariane antes mesmo da primeira conversa.</h2></div><p>Uma apresentação pessoal e um olhar mais próximo sobre os imóveis da região.</p></div>
+        <div className="v2-video-grid">
+          <figure><video controls playsInline preload="metadata" poster="/images/video-imovel-poster.jpg"><source src="/videos/tour-imovel-mobile.mp4" type="video/mp4" /></video><figcaption><span>01</span><strong>Tour de imóvel</strong></figcaption></figure>
+          <figure><video controls playsInline preload="metadata" poster="/images/video-ariane-poster.jpg"><source src="/videos/ariane-mensagem-mobile.mp4" type="video/mp4" /></video><figcaption><span>02</span><strong>Uma mensagem da Ariane</strong></figcaption></figure>
+        </div>
+      </section>
+
+      <section className="v2-faq v2-section">
+        <div><p className="v2-kicker v2-kicker-dark"><span /> Antes de começar</p><h2>O que você precisa saber sobre a consultoria.</h2><p>Se a sua dúvida não está aqui, fale diretamente com a Ariane.</p></div>
+        <div className="v2-faq-list">
+          {faqs.map(([question, answer], index) => <details key={question}><summary><span>{String(index + 1).padStart(2, "0")}</span>{question}<b>+</b></summary><p>{answer}</p></details>)}
+        </div>
+      </section>
+
+      <section className="v2-final">
+        <Image src="/images/casa-alphaville-fachada.jpg" alt="" fill sizes="100vw" />
+        <div className="v2-final-overlay" />
+        <div><p className="v2-kicker"><span /> Seu próximo imóvel começa antes da primeira visita</p><h2>Comece pela<br /><em>conversa certa.</em></h2><p>Conte para Ariane o seu momento e o que é importante para você. A partir daí, sua busca ganha direção.</p><a className="v2-button v2-button-gold" href={wa(messages.comprar)} target="_blank" rel="noreferrer">Quero encontrar meu imóvel <span>↗</span></a><small>Atendimento pessoal pelo WhatsApp</small></div>
+      </section>
+
+      <footer className="v2-footer">
+        <a className="v2-brand" href="#inicio"><span className="v2-monogram">AL</span><span><strong>Ariane Laurindo</strong><small>Consultora imobiliária · RE/MAX</small></span></a>
+        <p>Imóveis de alto padrão em Alphaville, Barueri e região.<br />Casas · Apartamentos · Terrenos · Investimentos</p>
+        <a href={wa(messages.general)} target="_blank" rel="noreferrer">WhatsApp: (11) 94969-0737 ↗</a>
+        <small>© 2026 Ariane Laurindo. Disponibilidade e condições sujeitas a confirmação.</small>
+      </footer>
+
+      <a className="v2-mobile-cta" href={wa(messages.general)} target="_blank" rel="noreferrer"><span>WA</span><div><small>Atendimento pessoal</small><strong>Falar com a Ariane</strong></div><b>↗</b></a>
+    </main>
+  );
+}
