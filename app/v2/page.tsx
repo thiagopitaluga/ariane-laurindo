@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { ArianeLogo, WhatsAppIcon } from "./brand";
 import { ScrollEffects } from "./scroll-effects";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ariane-laurindo.vercel.app";
@@ -76,7 +77,7 @@ export default function V2Page() {
 
       <header className="v2-header">
         <a className="v2-brand" href="#inicio" aria-label="Ariane Laurindo, início">
-          <span className="v2-monogram">AL</span>
+          <ArianeLogo />
           <span><strong>Ariane Laurindo</strong><small>Consultora imobiliária · RE/MAX</small></span>
         </a>
         <nav aria-label="Navegação principal">
@@ -94,11 +95,10 @@ export default function V2Page() {
         <div className="v2-hero-overlay" />
         <div className="v2-hero-copy">
           <p className="v2-kicker"><span /> Imóveis de alto padrão em Alphaville e Barueri</p>
-          <h1>O <span className="v2-gradient-text">imóvel certo</span> para o seu próximo capítulo em <span className="v2-gradient-text">Alphaville.</span></h1>
+          <h1>O imóvel certo para o seu próximo capítulo em <span className="v2-gradient-text">Alphaville.</span></h1>
           <p className="v2-lead v2-hero-subheadline">Curadoria personalizada de imóveis de alto padrão em Alphaville e Barueri para quem não quer perder tempo com opções que não fazem sentido.</p>
           <div className="v2-actions">
             <a className="v2-button v2-button-gold" href={wa(messages.comprar)} target="_blank" rel="noreferrer">Quero encontrar meu imóvel <span>↗</span></a>
-            <small>Atendimento personalizado pelo WhatsApp</small>
           </div>
           <ul className="v2-types"><li>Casas</li><li>Apartamentos</li><li>Terrenos</li></ul>
         </div>
@@ -106,9 +106,12 @@ export default function V2Page() {
       </section>
 
       <section className="v2-pain v2-section" id="consultoria" data-reveal="up">
-        <div className="v2-section-label"><span>01</span> A busca certa</div>
+        <video className="v2-pain-video" autoPlay muted loop playsInline preload="metadata" poster="/images/video-imovel-poster.jpg" aria-hidden="true">
+          <source src="/videos/tour-imovel-mobile.mp4" type="video/mp4" />
+        </video>
+        <div className="v2-pain-overlay" aria-hidden="true" />
         <div className="v2-pain-title" data-reveal="up">
-          <p className="v2-kicker v2-kicker-dark"><span /> Encontrar um imóvel é fácil. Encontrar o certo é outra história.</p>
+          <p className="v2-kicker"><span /> Encontrar um imóvel é fácil. Encontrar o certo é outra história.</p>
           <h2>Você não precisa de mais opções.<em>Precisa das opções certas.</em></h2>
         </div>
         <div className="v2-pain-copy" data-reveal="up" data-reveal-delay="1">
@@ -170,7 +173,6 @@ export default function V2Page() {
       </section>
 
       <section className="v2-paths v2-section">
-        <div className="v2-section-label"><span>02</span> Seu momento</div>
         <div className="v2-paths-heading" data-reveal="up"><p className="v2-kicker v2-kicker-dark"><span /> Qual é o seu objetivo?</p><h2>Cada pessoa chega a Alphaville por um motivo diferente.</h2></div>
         <div className="v2-path-grid">
           <article data-reveal="up"><span>01</span><small>Quero comprar</small><h3>Um imóvel que combine com a vida que você quer viver.</h3><p>Casas, apartamentos e terrenos selecionados de acordo com seu perfil, orçamento e prioridades.</p><a href={wa(messages.comprar)} target="_blank" rel="noreferrer">Encontrar meu imóvel <b>↗</b></a></article>
@@ -190,7 +192,7 @@ export default function V2Page() {
       </section>
 
       <section className="v2-authority v2-section" id="ariane">
-        <div className="v2-award-photo" data-reveal="media"><Image src="/images/premiacao-2025.jpg" alt="Ariane Laurindo recebendo o prêmio Melhores do Ano 2025" fill sizes="(max-width: 900px) 100vw, 43vw" /><div><strong>2025</strong><span>Melhores<br />do Ano</span></div></div>
+        <div className="v2-award-photo" data-reveal="media"><Image src="/images/ariane-premiacao-2025.webp" alt="Ariane Laurindo recebendo o prêmio Melhores do Ano 2025" fill sizes="(max-width: 900px) 100vw, 43vw" /><div><strong>2025</strong><span>Melhores<br />do Ano</span></div></div>
         <div className="v2-authority-copy" data-reveal="up">
           <p className="v2-kicker v2-kicker-dark"><span /> Conhecimento local faz diferença</p>
           <h2>Não basta conhecer imóveis. É preciso conhecer o lugar.</h2>
@@ -207,8 +209,7 @@ export default function V2Page() {
       <section className="v2-videos v2-section">
         <div className="v2-videos-heading" data-reveal="up"><div><p className="v2-kicker"><span /> Presença e conhecimento</p><h2>Conheça a Ariane antes mesmo da primeira conversa.</h2></div><p>Uma apresentação pessoal e um olhar mais próximo sobre os imóveis da região.</p></div>
         <div className="v2-video-grid">
-          <figure data-reveal="media"><video controls playsInline preload="metadata" poster="/images/video-imovel-poster.jpg"><source src="/videos/tour-imovel-mobile.mp4" type="video/mp4" /></video><figcaption><span>01</span><strong>Tour de imóvel</strong></figcaption></figure>
-          <figure data-reveal="media" data-reveal-delay="1"><video controls playsInline preload="metadata" poster="/images/video-ariane-poster.jpg"><source src="/videos/ariane-mensagem-mobile.mp4" type="video/mp4" /></video><figcaption><span>02</span><strong>Uma mensagem da Ariane</strong></figcaption></figure>
+          <figure data-reveal="media"><video controls playsInline preload="metadata" poster="/images/video-ariane-poster.jpg"><source src="/videos/ariane-mensagem-mobile.mp4" type="video/mp4" /></video><figcaption><span>01</span><strong>Uma mensagem da Ariane</strong></figcaption></figure>
         </div>
       </section>
 
@@ -222,17 +223,20 @@ export default function V2Page() {
       <section className="v2-final">
         <Image src="/images/casa-alphaville-fachada.jpg" alt="" fill sizes="100vw" />
         <div className="v2-final-overlay" />
-        <div data-reveal="up"><p className="v2-kicker"><span /> Seu próximo imóvel começa antes da primeira visita</p><h2>Comece pela<br /><em className="v2-gradient-text">conversa certa.</em></h2><p>Conte para Ariane o seu momento e o que é importante para você. A partir daí, sua busca ganha direção.</p><a className="v2-button v2-button-gold" href={wa(messages.comprar)} target="_blank" rel="noreferrer">Quero encontrar meu imóvel <span>↗</span></a><small>Atendimento pessoal pelo WhatsApp</small></div>
+        <div data-reveal="up"><p className="v2-kicker"><span /> Seu próximo imóvel começa antes da primeira visita</p><h2>Seu próximo capítulo começa em <span className="v2-gradient-text">Alphaville.</span></h2><p>Conte para Ariane o seu momento e o que é importante para você. A partir daí, sua busca ganha direção.</p><a className="v2-button v2-button-gold" href={wa(messages.comprar)} target="_blank" rel="noreferrer">Quero encontrar meu imóvel <span>↗</span></a></div>
       </section>
 
       <footer className="v2-footer">
-        <a className="v2-brand" href="#inicio"><span className="v2-monogram">AL</span><span><strong>Ariane Laurindo</strong><small>Consultora imobiliária · RE/MAX</small></span></a>
+        <a className="v2-brand" href="#inicio"><ArianeLogo /><span><strong>Ariane Laurindo</strong><small>Consultora imobiliária · RE/MAX</small></span></a>
         <p>Imóveis de alto padrão em Alphaville, Barueri e região.<br />Casas · Apartamentos · Terrenos · Investimentos</p>
         <a href={wa(messages.general)} target="_blank" rel="noreferrer">WhatsApp: (11) 94969-0737 ↗</a>
         <small>© 2026 Ariane Laurindo. Disponibilidade e condições sujeitas a confirmação.</small>
       </footer>
 
-      <a className="v2-mobile-cta" href={wa(messages.general)} target="_blank" rel="noreferrer"><span>WA</span><div><small>Atendimento pessoal</small><strong>Falar com a Ariane</strong></div><b>↗</b></a>
+      <a className="v2-floating-whatsapp" href={wa(messages.general)} target="_blank" rel="noreferrer" aria-label="Falar com Ariane Laurindo pelo WhatsApp">
+        <span>Falar no WhatsApp</span>
+        <WhatsAppIcon />
+      </a>
     </main>
   );
 }
