@@ -111,7 +111,7 @@ export default function V2Page() {
 
       <header className="v2-header">
         <a className="v2-brand" href="#inicio" aria-label="Ariane Laurindo, início">
-          <Image className="v2-brand-logo" src="/images/logo-ariane-laurindo-oficial.png" alt="Ariane Laurindo — Consultora Imobiliária" width={768} height={512} priority />
+          <Image className="v2-brand-logo" src="/images/logo-ariane-laurindo-oficial.png" alt="Ariane Laurindo — Consultora Imobiliária" width={1672} height={941} priority />
         </a>
         <nav aria-label="Navegação principal">
           <a href="#metodo">Como funciona</a>
@@ -269,7 +269,7 @@ export default function V2Page() {
       </section>
 
       <footer className="v2-footer">
-        <a className="v2-brand" href="#inicio" aria-label="Ariane Laurindo, voltar ao início"><Image className="v2-brand-logo" src="/images/logo-ariane-laurindo-oficial.png" alt="Ariane Laurindo — Consultora Imobiliária" width={768} height={512} /></a>
+        <a className="v2-brand" href="#inicio" aria-label="Ariane Laurindo, voltar ao início"><Image className="v2-brand-logo" src="/images/logo-ariane-laurindo-oficial.png" alt="Ariane Laurindo — Consultora Imobiliária" width={1672} height={941} /></a>
         <p>Imóveis de alto padrão em Alphaville, Barueri e região.<br />Casas · Apartamentos · Terrenos · Investimentos</p>
         <a href={wa(messages.general)} target="_blank" rel="noreferrer">WhatsApp: (11) 94969-0737 ↗</a>
         <small>© 2026 Ariane Laurindo. Disponibilidade e condições sujeitas a confirmação.</small>
